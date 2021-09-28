@@ -23,11 +23,18 @@ class PopulateDatabase {
 
             for($i = 0; $i < 100; $i++) {
 
+                $created_at = $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+            
+                # Error when importing the specific date value from faker to MySQL
+                while($created_at->format("Y-m-d") == "2021-03-28" ){
+                    $created_at = $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+                }
+
                 Customer::create([
                     'first_name' => $this->faker->firstName,
                     'last_name' => $this->faker->lastName,
                     'email' => $this->faker->email,
-                    'created_at' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)
+                    'created_at' => $created_at
                 ]);
             }
         }
@@ -61,12 +68,19 @@ class PopulateDatabase {
             $device = ['Phone', 'Desktop', 'Pad'];
 
             for($i = 0; $i < 5000; $i++) {
+
+            $created_at = $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+            
+            # Error when importing the specific date value from faker to MySQL
+            while($created_at->format("Y-m-d") == "2021-03-28" ){
+                $created_at = $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+            }
                 
                 Order::create([
                     'customer_id' => $customer[rand(0, sizeof($customer)-1)]->id,
                     'country' => $this->faker->country,
                     'device' => $device[rand(0, 2)],
-                    'created_at' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
+                    'created_at' => $created_at
                 ]);
             }
         }
