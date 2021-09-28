@@ -2,7 +2,7 @@
 
 ## Information
 
-The database structure is attached. Tables are empty but will get populated by the app.
+The database structure is attached, file 127_0_0_1.sql. Tables are empty but will get populated by the app.
     
 Change database settings (if needed) in app/config/database.php. 
    
