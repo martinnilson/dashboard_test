@@ -1,0 +1,22 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Skill test",
+  "main": "app.js",
+  "scripts": {
+    "build": "browserify -t vueify -e app/resources/js/app.js -o public/build/build.js"
+  },
+  "author": "Martin Nilson",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "highcharts-vue": "^1.4.0",
+    "moment-timezone": "^0.5.33",
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "vueify": "^9.4.1"
+  }
+}
